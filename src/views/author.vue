@@ -45,6 +45,7 @@ export default {
 		background-color: #f2ab39;
 		border-radius: 10px;
 		transition: box-shadow .2s, transform .2s;
+		margin-bottom: 10px;
 		a{
 			display: block;
 			padding: 20px 0;
