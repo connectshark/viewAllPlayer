@@ -17,6 +17,11 @@ export default new Vuex.Store({
       })
     }
   },
+  getters: {
+    filterPlayer (state) {
+      return state.playerList.find(obj => state.route.params.url === obj.blogUrl)
+    }
+  },
   modules: {
   }
 })

@@ -9,8 +9,8 @@
     <div class="row">
       <p>update time:{{updateTime}}</p>
     </div>
-    <div class="row">
-      <router-link :to="`/Author/`+blogUrl">文章列表</router-link>
+    <div class="row" v-if="state">
+      <router-link :to="{ name: 'author', params: { url: blogUrl}}">文章列表</router-link>
     </div>
   </div>
 </template>
@@ -19,14 +19,16 @@
 export default {
   name: 'playerInfo',
   props: {
-    blogList: Array,
+    state: {
+      type: Boolean,
+      default: false
+    },
     blogUrl: String,
     name: String,
     updateTime: String
   },
   data () {
     return {
-
     }
   }
 }

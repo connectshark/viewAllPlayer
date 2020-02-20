@@ -5,7 +5,7 @@
       v-for="(item, index) in playerList"
       :key="index">
         <playerInfo
-        :blogList="item.blogList"
+        :state="true"
         :name="item.name"
         :updateTime="item.updateTime"
         :blogUrl="item.blogUrl" />

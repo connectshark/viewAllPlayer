@@ -10,7 +10,8 @@ const routes = [
     component: () => import('../views/index.vue')
   },
   {
-    path: '/Author/:url',
+    path: '/author',
+    name: 'author',
     component: () => import('../views/author.vue')
   }
 ]

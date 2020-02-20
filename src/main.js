@@ -4,6 +4,9 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import './assets/css/reset.css'
+import { sync } from 'vuex-router-sync'
+
+sync(store, router)
 Vue.config.productionTip = false
 
 new Vue({
