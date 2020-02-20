@@ -8,11 +8,16 @@ const routes = [
     path: '/',
     name: 'index',
     component: () => import('../views/index.vue')
+  },
+  {
+    path: '/Author/:url',
+    component: () => import('../views/author.vue')
   }
 ]
 
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  routes: routes
 })
 
 export default router

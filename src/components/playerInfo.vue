@@ -1,9 +1,16 @@
 <template>
   <div class="playerInfo">
     <div class="row">
-      <h3>{{name}}</h3>
+      <h3>{{name || '無提供名字'}}</h3>
+    </div>
+    <div class="row">
       <p>blog <a :href="blogUrl" target="_blank">部落格連結</a></p>
+    </div>
+    <div class="row">
       <p>update time:{{updateTime}}</p>
+    </div>
+    <div class="row">
+      <router-link :to="`/Author/`+blogUrl">文章列表</router-link>
     </div>
   </div>
 </template>
@@ -33,5 +40,12 @@ export default {
   box-sizing: border-box;
   padding: 20px;
   border: 2px solid #aaa;
+  border-radius: 10px;
+  &:hover{
+    box-shadow: 1px 1px 5px #aaa;
+  }
+  .row{
+    padding: 10px 0;
+  }
 }
 </style>

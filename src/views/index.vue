@@ -34,7 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/scss/_mixin.scss';
 .index{
+  padding: 10px 0 0;
   .player-group{
     width: 100%;
     max-width: 1280px;
@@ -46,6 +48,9 @@ export default {
     .player-item{
       width: 33.333333%;
       margin-bottom: 20px;
+      @include rwd(mobile){
+        width: 100%;
+      }
     }
   }
 }
