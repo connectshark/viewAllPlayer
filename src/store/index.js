@@ -5,10 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    playerList: []
   },
   mutations: {
+    setList:(state, data) => state.playerList = data
   },
   actions: {
+    initState (context) {
+      fetch('https://raw.githubusercontent.com/hexschool/w3hexschool-API/master/data.json').then(res => res.json()).then(json => {
+        context.commit('setList', json)
+      })
+    }
   },
   modules: {
   }
