@@ -34,6 +34,7 @@ export default {
 <style lang="scss">
 #Author{
 	width: 100%;
+	margin: auto;
 	max-width: 1280px;
 	padding: 10px 0 0;
 	.article{
