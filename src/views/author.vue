@@ -35,6 +35,7 @@ export default {
 #Author{
 	width: 100%;
 	max-width: 1280px;
+	padding: 10px 0 0;
 	.article{
 		padding: 20px;
 		box-sizing: border-box;

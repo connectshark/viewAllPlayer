@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/index',
     name: 'index',
     component: () => import('../views/index.vue')
   },
@@ -13,6 +13,10 @@ const routes = [
     path: '/author',
     name: 'author',
     component: () => import('../views/author.vue')
+  },
+  {
+    path: '*',
+    redirect: '/index'
   }
 ]
 

@@ -7,7 +7,7 @@
       <p>blog <a :href="blogUrl" target="_blank">部落格連結</a></p>
     </div>
     <div class="row">
-      <p>update time:{{updateTime}}</p>
+      <p>update time:{{setTime}}</p>
     </div>
     <div class="row" v-if="state">
       <router-link :to="{ name: 'author', params: { url: blogUrl}}">文章列表</router-link>
@@ -29,6 +29,22 @@ export default {
   },
   data () {
     return {
+      today: new Date()
+    }
+  },
+  computed: {
+    setTime () {
+      let arr = this.updateTime.split('/')
+      const month = this.today.getMonth() + 1
+      const date = this.today.getDate()
+      if (month === parseInt(arr[1])) {
+        if (date === arr[2].split(' ')[0]) {
+          return 'today'
+        } else {
+          return `${parseInt(date) - parseInt(arr[2].split(' ')[0])}天前更新`
+        }
+      }
+      return `許久未更新`
     }
   }
 }
