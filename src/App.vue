@@ -9,6 +9,10 @@
 <script>
 export default {
   name: 'app',
+  data() {
+    return {
+    }
+  },
   mounted () {
     this.$store.dispatch('initState')
   }

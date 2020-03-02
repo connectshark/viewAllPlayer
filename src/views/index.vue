@@ -1,8 +1,9 @@
 <template>
   <div class="index">
+    <searchBar />
     <div class="player-group">
       <div class="player-item"
-      v-for="(item, index) in playerList"
+      v-for="(item, index) in filterKeyword || playerList"
       :key="index">
         <playerInfo
         :state="true"
@@ -15,20 +16,22 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
+import searchBar from '../components/searchBar'
 import playerInfo from '../components/playerInfo'
 export default {
   name: 'index',
   components: {
-    playerInfo
+    playerInfo,
+    searchBar
   },
   data () {
     return {
-
     }
   },
   computed: {
-    ...mapState(['playerList'])
+    ...mapState(['playerList']),
+    ...mapGetters(['filterKeyword'])
   }
 }
 </script>
@@ -36,7 +39,6 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/_mixin.scss';
 .index{
-  padding: 10px 0 0;
   .player-group{
     width: 100%;
     max-width: 1280px;

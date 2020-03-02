@@ -1,7 +1,7 @@
 <template>
   <div class="playerInfo">
     <div class="row">
-      <h3>{{name || '無提供名字'}}</h3>
+      <h3 v-html="highlightText(name)"></h3>
     </div>
     <div class="row">
       <p>blog <a :href="blogUrl" target="_blank">部落格連結</a></p>
@@ -32,6 +32,15 @@ export default {
       today: new Date()
     }
   },
+  methods: {
+    highlightText (name) {
+      if (name === null) return '無提供名字'
+      if (name.indexOf(this.searchKeyWord) !== -1 && this.searchKeyWord !== '') {
+        return name.replace(this.searchKeyWord, `<span style="color:#D76735;">${this.searchKeyWord}</span>`)
+      }
+      return name
+    }
+  },
   computed: {
     setTime () {
       let arr = this.updateTime.split('/')
@@ -45,6 +54,9 @@ export default {
         }
       }
       return `許久未更新`
+    },
+    searchKeyWord () {
+      return this.$store.state.route.query.keyword
     }
   }
 }

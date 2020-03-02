@@ -20,6 +20,10 @@ export default new Vuex.Store({
   getters: {
     filterPlayer (state) {
       return state.playerList.find(obj => state.route.params.url === obj.blogUrl)
+    },
+    filterKeyword (state) {
+      if (state.route.query.keyword === undefined || '') return ''
+      return state.playerList.filter(obj => obj.name !== null).filter(obj => obj.name.indexOf(state.route.query.keyword) !== -1)
     }
   },
   modules: {
